@@ -1,0 +1,27 @@
+.tabs{
+    width: 100%;
+    background: #24303C;
+    padding: 15px 0;  
+    margin: 0;  
+}
+.tab-links{
+    display: inline-flex;
+    margin: 0 auto;
+}
+.tabs li{
+    list-style: none;
+    padding: 10px 0;
+}
+.tabs li a{
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 50px;
+    font-weight: 600;
+    outline: none;
+}
+.tabs li a:hover{
+    color: #fff;
+    background: #1ab188;
+    border-radius: 5px 0;
+    transition: 0.4s ease-in-out;
+}
