@@ -11,7 +11,7 @@ class App extends Component {
       <div className="App">
         <BasicExample />
         <footer className="app-footer">
-          <b>&copy; Copyrights </b><span>All Rights Reserved</span>  
+          <b>&copy; Copyrights<span> 2018</span></b>
         </footer>
       </div>
     );

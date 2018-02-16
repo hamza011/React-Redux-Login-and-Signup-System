@@ -45,12 +45,12 @@ class Login extends React.Component {
         return (
             <div className="content">
                 <div className="modal-login">
-                    <div className="modal-content">
-                        <h3>LOGIN ..</h3>
+                    <div className="modal-cont">
+                        <h3>LOGIN</h3>
                         <form action="" onSubmit={this.onSubmit.bind(this)}>
-                            <input type="text" placeholder="User name:" name="userName" value={this.state.LoginFields.userName} onChange={this.changeHandler.bind(this, 'userName')} ref="username" required/>
-                            <input type="email" placeholder="Email:" name="email" value={this.state.LoginFields.email} onChange={this.changeHandler.bind(this, 'email')} ref="email" required />
-                            <input type="password" placeholder="Password:" name="password" value={this.state.LoginFields.password} onChange={this.changeHandler.bind(this, 'password')} ref="password" required />
+                            <input type="text" placeholder="User name" name="userName" value={this.state.LoginFields.userName} onChange={this.changeHandler.bind(this, 'userName')} ref="username" required/>
+                            <input type="email" placeholder="Email" name="email" value={this.state.LoginFields.email} onChange={this.changeHandler.bind(this, 'email')} ref="email" required />
+                            <input type="password" placeholder="Password" name="password" value={this.state.LoginFields.password} onChange={this.changeHandler.bind(this, 'password')} ref="password" required />
                             <div className="login-btn">
                                 <button>Login</button>
                             </div>
@@ -62,11 +62,10 @@ class Login extends React.Component {
     }
     onSubmit(e) {
         e.preventDefault();
-        // store.dispatch({type : "LOGIN_USER", payload : this.state.LoginFields});
         this.props.dispatchLoginDetails(this.state.LoginFields);
         this.refs.userName = "";
         this.refs.email = "";
         this.refs.password = "";
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

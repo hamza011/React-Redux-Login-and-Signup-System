@@ -10,6 +10,7 @@ import './dashboard.css';
 function mapStateToProps(store) {
     return {
         loginUserFromStore: store.loginUser,
+        bookedHuts: JSON.parse(localStorage.getItem('bookedHut'))
     };
 }
 function mapDispatchToProps(dispatch) {
@@ -49,8 +50,23 @@ class Dashboard extends React.Component {
                         </ul>
                     </div>
                 </dashboard-header>
-                <div className="content">
-                    <p className="">welcome dear <b>{this.props.loginUserFromStore[0].userName}</b>, this is your dashboard .. </p>
+                <div className="dashboard-content">
+                    <div>
+                        <p className="">welcome <b>{this.props.loginUserFromStore[0].userName}</b>, this is your dashboard. </p>
+                    </div>
+                    <div>
+                        {this.props.bookedHuts ?
+                            <div className="show-booked-huts">
+                                <h2>Your Bookings</h2>
+                                <img src={'../../images/' + this.props.bookedHuts.thumbnailURI} alt="" />
+                                <h4>Hut Name : {this.props.bookedHuts.name}</h4>
+                                <button onClick={this.checkDetails.bind(this)} className="check-details">Check Details</button>
+                                <button className="check-details" onClick={this.cancelBooking.bind(this)}>Cancel Booking</button>
+                            </div>
+                            :
+                            <div></div>
+                        }
+                    </div>
                 </div>
             </div>
         )
@@ -60,6 +76,17 @@ class Dashboard extends React.Component {
         e.preventDefault();
         this.props.dispatchLogOutUser(this.props.loginUserFromStore);
         this.props.history.push('/');
+    }
+    checkDetails(id) {
+        id = this.props.bookedHuts.id;
+        this.props.history.push('/hutDetails/' + id);
+    }
+    cancelBooking() {
+        alert(
+            "Your cancellation for " + this.props.bookedHuts.name + " at " + this.props.bookedHuts.location
+            + " is confirmed. \n You should have another look on our 'Registered Huts'.");
+        localStorage.removeItem('bookedHut');
+        this.props.history.push('/huts');
     }
 
 }

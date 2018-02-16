@@ -23,16 +23,16 @@ export default class Signup extends React.Component {
     }
     render() {
         return (
-            <div className="content">
+            <div className="signup-content">
                 <div className="modal-login modal-sign-up">
                     <div className="modal-content sign-up">
-                        <h3>Sign Up ..</h3>
+                        <h3>Sign Up</h3>
                         <form action="" onSubmit={this.onSubmit.bind(this)}>
-                            <input type="text" placeholder="Name :" name="name" value={this.state.SignupFields.name} onChange={this.changeHandler.bind(this, 'name')} ref="name" required />
-                            <input type="text" placeholder="User Name :" name="userName" value={this.state.SignupFields.userName} onChange={this.changeHandler.bind(this, 'userName')} ref="userName" required />
-                            <input type="email" placeholder="Email : " name="email" value={this.state.SignupFields.email} onChange={this.changeHandler.bind(this, 'email')} ref="email" required />
-                            <input type="password" placeholder="Password : " name="password" value={this.state.SignupFields.password} onChange={this.changeHandler.bind(this, 'password')} ref="password" required />
-                            <input type="text" placeholder="About You :" name="about" value={this.state.SignupFields.about} onChange={this.changeHandler.bind(this, 'about')} ref="about" />
+                            <input type="text" placeholder="Name" name="name" value={this.state.SignupFields.name} onChange={this.changeHandler.bind(this, 'name')} ref="name" required />
+                            <input type="text" placeholder="User Name" name="userName" value={this.state.SignupFields.userName} onChange={this.changeHandler.bind(this, 'userName')} ref="userName" required />
+                            <input type="email" placeholder="Email" name="email" value={this.state.SignupFields.email} onChange={this.changeHandler.bind(this, 'email')} ref="email" required />
+                            <input type="password" placeholder="Password" name="password" value={this.state.SignupFields.password} onChange={this.changeHandler.bind(this, 'password')} ref="password" required />
+                            <input type="text" placeholder="About You" name="about" value={this.state.SignupFields.about} onChange={this.changeHandler.bind(this, 'about')} ref="about" />
                             <div className="signup-btn">
                                 <button>Sign up</button>
                             </div>
@@ -50,5 +50,6 @@ export default class Signup extends React.Component {
         this.refs.email.value = "";
         this.refs.password.value = "";
         this.refs.about.value = "";
+        this.props.history.push('/login')
     }
 }
